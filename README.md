@@ -2,8 +2,8 @@
 
 ## Overview ##
 
-This "module" just exnteds the blog module and decorates
-the BlogEntry and BlogTree models to allow managing your blog
+This "module" just extends the blog module and decorates
+the BlogEntry and BlogHolder models to allow managing your blog
 with the GridField instead of pages - even though they're still pages.
 
 
