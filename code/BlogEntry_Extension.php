@@ -7,6 +7,17 @@ class BlogEntry_Extension extends DataExtension {
 		'PublishStatus'		=> 'Boolean',
 	);
 	
+	static $summary_fields = array(
+		'Title' => 'Title',
+		'Author' => 'Author',
+		'Date' => 'Date',
+		'PublishedStatusFormatted' => 'Status',
+	);
+	
+	function getPublishedStatusFormatted(){
+		return $this->getOwner()->PublishedStatus ? 'Published' : 'Draft';
+	}
+	
 	function onBeforeDelete(){
 		parent::onBeforeDelete();
 
@@ -45,6 +56,7 @@ class BlogEntry_Extension extends DataExtension {
 			if($owner->PublishStatus == 1){
 				$owner->PublishStatus = 0;
 				$owner->publish('Stage', 'Live');
+				
 			}else{
 				$owner->deleteFromStage('Live');
 				$owner->flushCache();
