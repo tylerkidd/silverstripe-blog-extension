@@ -15,7 +15,7 @@ class BlogEntry_Extension extends DataExtension {
 	);
 	
 	function getPublishedStatusFormatted(){
-		return $this->getOwner()->PublishedStatus ? 'Published' : 'Draft';
+		return $this->getOwner()->PublishStatus ? 'Published' : 'Draft';
 	}
 	
 	function onBeforeDelete(){
